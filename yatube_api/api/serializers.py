@@ -3,7 +3,7 @@ from rest_framework import serializers
 
 
 class PostSerializer(serializers.ModelSerializer):
-    author = serializers.StringRelatedField(read_only=True)
+    author = serializers.SlugRelatedField(read_only=True, slug_field='username')
     group = serializers.SlugRelatedField(read_only=True, slug_field='title')
 
     class Meta:
